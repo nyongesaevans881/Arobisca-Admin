@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="B:\7-App Dev\5-Ecommerce-complete\Arobisca\Arobisca\client_side\admin_panal_complete\windows\flutter\ephemeral\cpp_client_wrapper\core_implementations.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="B:\7-App Dev\5-Ecommerce-complete\Arobisca\Arobisca\client_side\admin_panal_complete\windows\flutter\ephemeral\cpp_client_wrapper\standard_codec.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="B:\7-App Dev\5-Ecommerce-complete\Arobisca\Arobisca\client_side\admin_panal_complete\windows\flutter\ephemeral\cpp_client_wrapper\flutter_engine.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="B:\7-App Dev\5-Ecommerce-complete\Arobisca\Arobisca\client_side\admin_panal_complete\windows\flutter\ephemeral\cpp_client_wrapper\flutter_view_controller.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="B:\7-App Dev\5-Ecommerce-complete\Arobisca\Arobisca\client_side\admin_panal_complete\windows\flutter\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{20B4C444-5C1C-3620-83D0-AB3C02BB142C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{410D2C8E-5805-31BC-B4AE-3B316EDA3D86}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

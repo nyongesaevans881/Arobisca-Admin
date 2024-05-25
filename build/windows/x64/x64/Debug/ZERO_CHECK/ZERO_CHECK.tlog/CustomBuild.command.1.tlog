@@ -1,0 +1,10 @@
+^B:\7-APP DEV\5-ECOMMERCE-COMPLETE\AROBISCA\AROBISCA\CLIENT_SIDE\ADMIN_PANAL_COMPLETE\BUILD\WINDOWS\X64\CMAKEFILES\E982B5BCB8E15F70BE6368B6BAA7CCE1\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" "-SB:/7-App Dev/5-Ecommerce-complete/Arobisca/Arobisca/client_side/admin_panal_complete/windows" "-BB:/7-App Dev/5-Ecommerce-complete/Arobisca/Arobisca/client_side/admin_panal_complete/build/windows/x64" --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "B:/7-App Dev/5-Ecommerce-complete/Arobisca/Arobisca/client_side/admin_panal_complete/build/windows/x64/flutter_admin_portal.sln"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

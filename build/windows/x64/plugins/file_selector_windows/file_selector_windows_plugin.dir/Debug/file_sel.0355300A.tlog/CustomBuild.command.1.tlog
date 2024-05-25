@@ -1,0 +1,10 @@
+^B:\7-APP DEV\5-ECOMMERCE-COMPLETE\AROBISCA\AROBISCA\CLIENT_SIDE\ADMIN_PANAL_COMPLETE\WINDOWS\FLUTTER\EPHEMERAL\.PLUGIN_SYMLINKS\FILE_SELECTOR_WINDOWS\WINDOWS\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" "-SB:/7-App Dev/5-Ecommerce-complete/Arobisca/Arobisca/client_side/admin_panal_complete/windows" "-BB:/7-App Dev/5-Ecommerce-complete/Arobisca/Arobisca/client_side/admin_panal_complete/build/windows/x64" --check-stamp-file "B:/7-App Dev/5-Ecommerce-complete/Arobisca/Arobisca/client_side/admin_panal_complete/build/windows/x64/plugins/file_selector_windows/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

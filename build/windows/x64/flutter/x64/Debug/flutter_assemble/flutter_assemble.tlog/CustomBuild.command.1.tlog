@@ -1,0 +1,28 @@
+^B:\7-APP DEV\5-ECOMMERCE-COMPLETE\AROBISCA\AROBISCA\CLIENT_SIDE\ADMIN_PANAL_COMPLETE\BUILD\WINDOWS\X64\CMAKEFILES\66377D7421F30E8A7D845F7BE9E5A6B3\FLUTTER_WINDOWS.DLL.RULE
+setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E env FLUTTER_ROOT=C:\flutter "PROJECT_DIR=B:\7-App Dev\5-Ecommerce-complete\Arobisca\Arobisca\client_side\admin_panal_complete" FLUTTER_ROOT=C:\flutter "FLUTTER_EPHEMERAL_DIR=B:\7-App Dev\5-Ecommerce-complete\Arobisca\Arobisca\client_side\admin_panal_complete\windows\flutter\ephemeral" "PROJECT_DIR=B:\7-App Dev\5-Ecommerce-complete\Arobisca\Arobisca\client_side\admin_panal_complete" "FLUTTER_TARGET=B:\7-App Dev\5-Ecommerce-complete\Arobisca\Arobisca\client_side\admin_panal_complete\lib\main.dart" DART_DEFINES=RkxVVFRFUl9XRUJfQ0FOVkFTS0lUX1VSTD1odHRwczovL3d3dy5nc3RhdGljLmNvbS9mbHV0dGVyLWNhbnZhc2tpdC81NWVhZTY4NjRiMjk2ZGQ5ZjQzYjJjYzc1NzdlYzI1NmU1YzMyYThkLw== DART_OBFUSCATION=false TRACK_WIDGET_CREATION=true TREE_SHAKE_ICONS=false "PACKAGE_CONFIG=B:\7-App Dev\5-Ecommerce-complete\Arobisca\Arobisca\client_side\admin_panal_complete\.dart_tool\package_config.json" C:/flutter/packages/flutter_tools/bin/tool_backend.bat windows-x64 Debug
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^B:\7-APP DEV\5-ECOMMERCE-COMPLETE\AROBISCA\AROBISCA\CLIENT_SIDE\ADMIN_PANAL_COMPLETE\BUILD\WINDOWS\X64\CMAKEFILES\4D9813B9CF2139C95C94C48ACA303047\FLUTTER_ASSEMBLE.RULE
+setlocal
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^B:\7-APP DEV\5-ECOMMERCE-COMPLETE\AROBISCA\AROBISCA\CLIENT_SIDE\ADMIN_PANAL_COMPLETE\WINDOWS\FLUTTER\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" "-SB:/7-App Dev/5-Ecommerce-complete/Arobisca/Arobisca/client_side/admin_panal_complete/windows" "-BB:/7-App Dev/5-Ecommerce-complete/Arobisca/Arobisca/client_side/admin_panal_complete/build/windows/x64" --check-stamp-file "B:/7-App Dev/5-Ecommerce-complete/Arobisca/Arobisca/client_side/admin_panal_complete/build/windows/x64/flutter/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
