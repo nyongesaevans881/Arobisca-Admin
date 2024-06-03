@@ -13,7 +13,7 @@ class SnackBarHelper {
       colorText: Colors.white,
       borderRadius: 20,
       margin: margin,
-      duration: Duration(seconds: 3),
+      duration: Duration(seconds: 10),
       icon: Icon(Icons.error, color: Colors.white),
     );
   }

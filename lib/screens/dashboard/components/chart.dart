@@ -44,7 +44,7 @@ class Chart extends StatelessWidget {
                   },
                 ),
                 SizedBox(height: defaultPadding),
-                Text("Order")
+                Text("Order(s)")
               ],
             ),
           ),

@@ -20,7 +20,7 @@ class DashBoardHeader extends StatelessWidget {
         Expanded(
             child: SearchField(
           onChange: (val) {
-            context.dataProvider.filterProducts(val);
+            // context.dataProvider.filterProducts(val);
           },
         )),
         ProfileCard()

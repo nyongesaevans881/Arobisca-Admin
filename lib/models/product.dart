@@ -3,13 +3,9 @@ class Product {
   String? name;
   String? description;
   int? quantity;
-  double? price;
-  double? offerPrice;
-  ProRef? proCategoryId;
-  ProRef? proSubCategoryId;
-  ProRef? proBrandId;
-  ProTypeRef? proVariantTypeId;
-  List<String>? proVariantId;
+  int? price;
+  int? offerPrice;
+  ProCategoryId? proCategoryId;
   List<Images>? images;
   String? createdAt;
   String? updatedAt;
@@ -17,41 +13,27 @@ class Product {
 
   Product(
       {this.sId,
-        this.name,
-        this.description,
-        this.quantity,
-        this.price,
-        this.offerPrice,
-        this.proCategoryId,
-        this.proSubCategoryId,
-        this.proBrandId,
-        this.proVariantTypeId,
-        this.proVariantId,
-        this.images,
-        this.createdAt,
-        this.updatedAt,
-        this.iV});
+      this.name,
+      this.description,
+      this.quantity,
+      this.price,
+      this.offerPrice,
+      this.proCategoryId,
+      this.images,
+      this.createdAt,
+      this.updatedAt,
+      this.iV});
 
   Product.fromJson(Map<String, dynamic> json) {
     sId = json['_id'];
     name = json['name'];
     description = json['description'];
     quantity = json['quantity'];
-    price = json['price']?.toDouble();;
-    offerPrice = json['offerPrice']?.toDouble();;
+    price = json['price'];
+    offerPrice = json['offerPrice'];
     proCategoryId = json['proCategoryId'] != null
-        ? new ProRef.fromJson(json['proCategoryId'])
+        ? new ProCategoryId.fromJson(json['proCategoryId'])
         : null;
-    proSubCategoryId = json['proSubCategoryId'] != null
-        ? new ProRef.fromJson(json['proSubCategoryId'])
-        : null;
-    proBrandId = json['proBrandId'] != null
-        ? new ProRef.fromJson(json['proBrandId'])
-        : null;
-    proVariantTypeId = json['proVariantTypeId'] != null
-        ? new ProTypeRef.fromJson(json['proVariantTypeId'])
-        : null;
-    proVariantId = json['proVariantId'].cast<String>();
     if (json['images'] != null) {
       images = <Images>[];
       json['images'].forEach((v) {
@@ -74,16 +56,6 @@ class Product {
     if (this.proCategoryId != null) {
       data['proCategoryId'] = this.proCategoryId!.toJson();
     }
-    if (this.proSubCategoryId != null) {
-      data['proSubCategoryId'] = this.proSubCategoryId!.toJson();
-    }
-    if (this.proBrandId != null) {
-      data['proBrandId'] = this.proBrandId!.toJson();
-    }
-    if (this.proVariantTypeId != null) {
-      data['proVariantTypeId'] = this.proVariantTypeId!.toJson();
-    }
-    data['proVariantId'] = this.proVariantId;
     if (this.images != null) {
       data['images'] = this.images!.map((v) => v.toJson()).toList();
     }
@@ -94,13 +66,13 @@ class Product {
   }
 }
 
-class ProRef {
+class ProCategoryId {
   String? sId;
   String? name;
 
-  ProRef({this.sId, this.name});
+  ProCategoryId({this.sId, this.name});
 
-  ProRef.fromJson(Map<String, dynamic> json) {
+  ProCategoryId.fromJson(Map<String, dynamic> json) {
     sId = json['_id'];
     name = json['name'];
   }
@@ -109,25 +81,6 @@ class ProRef {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['_id'] = this.sId;
     data['name'] = this.name;
-    return data;
-  }
-}
-
-class ProTypeRef {
-  String? sId;
-  String? type;
-
-  ProTypeRef({this.sId, this.type});
-
-  ProTypeRef.fromJson(Map<String, dynamic> json) {
-    sId = json['_id'];
-    type = json['type'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['_id'] = this.sId;
-    data['type'] = this.type;
     return data;
   }
 }
@@ -153,3 +106,5 @@ class Images {
     return data;
   }
 }
+
+

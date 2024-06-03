@@ -3,7 +3,7 @@ import 'dart:io';
 import '../../../models/api_response.dart';
 import '../../../models/brand.dart';
 import '../../../models/sub_category.dart';
-import '../../../models/variant_type.dart';
+// import '../../../models/variant_type.dart';
 import 'package:flutter/foundation.dart' hide Category;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -28,10 +28,10 @@ class DashBoardProvider extends ChangeNotifier {
 
   //? dropdown value
   Category? selectedCategory;
-  SubCategory? selectedSubCategory;
-  Brand? selectedBrand;
-  VariantType? selectedVariantType;
-  List<String> selectedVariants = [];
+  // SubCategory? selectedSubCategory;
+  // Brand? selectedBrand;
+  // VariantType? selectedVariantType;
+  // List<String> selectedVariants = [];
 
   Product? productForUpdate;
   File? selectedMainImage, selectedSecondImage, selectedThirdImage, selectedFourthImage, selectedFifthImage;
@@ -57,13 +57,9 @@ class DashBoardProvider extends ChangeNotifier {
         'name': productNameCtrl.text,
         'description': productDescCtrl.text,
         'proCategoryId': selectedCategory?.sId ?? '',
-        'proSubCategoryId': selectedSubCategory?.sId ?? '',
-        'proBrandId': selectedBrand?.sId ?? '',
         'price': productPriceCtrl.text,
         'offerPrice': productOffPriceCtrl.text.isEmpty ? productPriceCtrl.text : productOffPriceCtrl.text,
         'quantity': productQntCtrl.text,
-        'proVariantTypeId': selectedVariantType?.sId,
-        'proVariantId': selectedVariants,
       };
 
       final FormData form = await createFormDataForMultipleImage(imgXFiles: [
@@ -103,13 +99,13 @@ class DashBoardProvider extends ChangeNotifier {
         'name': productNameCtrl.text,
         'description': productDescCtrl.text,
         'proCategoryId': selectedCategory?.sId ?? '',
-        'proSubCategoryId': selectedSubCategory?.sId ?? '',
-        'proBrandId': selectedBrand?.sId ?? '',
+        // 'proSubCategoryId': selectedSubCategory?.sId ?? '',
+        // 'proBrandId': selectedBrand?.sId ?? '',
         'price': productPriceCtrl.text,
         'offerPrice': productOffPriceCtrl.text.isEmpty ? productPriceCtrl.text : productOffPriceCtrl.text,
         'quantity': productQntCtrl.text,
-        'proVariantTypeId': selectedVariantType?.sId ?? '',
-        'proVariantId': selectedVariants,
+        // 'proVariantTypeId': selectedVariantType?.sId ?? '',
+        // 'proVariantId': selectedVariants,
       };
 
       final FormData form = await createFormDataForMultipleImage(imgXFiles: [
@@ -227,8 +223,8 @@ class DashBoardProvider extends ChangeNotifier {
 
 
   filterSubcategory(category) {
-    selectedSubCategory = null;
-    selectedBrand = null;
+    // selectedSubCategory = null;
+    // selectedBrand = null;
     selectedCategory = category;
     subCategoriesByCategory.clear();
     final newList = _dataProvider.subCategories.where((subcategory) => subcategory.categoryId?.sId == category.sId).toList();
@@ -237,24 +233,24 @@ class DashBoardProvider extends ChangeNotifier {
   }
 
 
-  filterBrand(SubCategory subCategory) {
-    selectedBrand = null;
-    selectedSubCategory = subCategory;
-    brandsBySubCategory.clear();
-    final newList = _dataProvider.brands.where((brand) => brand.subcategoryId?.sId == subCategory.sId).toList();
-    brandsBySubCategory = newList;
-    notifyListeners();
-  }
+  // filterBrand(SubCategory subCategory) {
+  //   // selectedBrand = null;
+  //   // selectedSubCategory = subCategory;
+  //   brandsBySubCategory.clear();
+  //   final newList = _dataProvider.brands.where((brand) => brand.subcategoryId?.sId == subCategory.sId).toList();
+  //   brandsBySubCategory = newList;
+  //   notifyListeners();
+  // }
 
 
-  filterVariant(VariantType variantType) {
-    selectedVariants = [];
-    selectedVariantType = variantType;
-    final newList = _dataProvider.variants.where((variant) => variant.variantTypeId?.sId == variantType.sId).toList();
-    final List<String> variantNames = newList.map((variant) => variant.name ?? '').toList();
-    variantsByVariantType = variantNames;
-    notifyListeners();
-  }
+  // filterVariant(VariantType variantType) {
+  //   // selectedVariants = [];
+  //   // selectedVariantType = variantType;
+  //   final newList = _dataProvider.variants.where((variant) => variant.variantTypeId?.sId == variantType.sId).toList();
+  //   final List<String> variantNames = newList.map((variant) => variant.name ?? '').toList();
+  //   variantsByVariantType = variantNames;
+  //   notifyListeners();
+  // }
 
 
 
@@ -275,23 +271,23 @@ class DashBoardProvider extends ChangeNotifier {
           .where((subcategory) => subcategory.categoryId?.sId == product.proCategoryId?.sId)
           .toList();
       subCategoriesByCategory = newListCategory;
-      selectedSubCategory =
-          _dataProvider.subCategories.firstWhereOrNull((element) => element.sId == product.proSubCategoryId?.sId);
+      // selectedSubCategory =
+      //     _dataProvider.subCategories.firstWhereOrNull((element) => element.sId == product.proSubCategoryId?.sId);
 
-      final newListBrand =
-          _dataProvider.brands.where((brand) => brand.subcategoryId?.sId == product.proSubCategoryId?.sId).toList();
-      brandsBySubCategory = newListBrand;
-      selectedBrand = _dataProvider.brands.firstWhereOrNull((element) => element.sId == product.proBrandId?.sId);
+      // final newListBrand =
+      //     _dataProvider.brands.where((brand) => brand.subcategoryId?.sId == product.proSubCategoryId?.sId).toList();
+      // brandsBySubCategory = newListBrand;
+      // selectedBrand = _dataProvider.brands.firstWhereOrNull((element) => element.sId == product.proBrandId?.sId);
 
-      selectedVariantType =
-          _dataProvider.variantTypes.firstWhereOrNull((element) => element.sId == product.proVariantTypeId?.sId);
+      // selectedVariantType =
+      //     _dataProvider.variantTypes.firstWhereOrNull((element) => element.sId == product.proVariantTypeId?.sId);
 
-      final newListVariant = _dataProvider.variants
-          .where((variant) => variant.variantTypeId?.sId == product.proVariantTypeId?.sId)
-          .toList();
-      final List<String> variantNames = newListVariant.map((variant) => variant.name ?? '').toList();
-      variantsByVariantType = variantNames;
-      selectedVariants = product.proVariantId ?? [];
+      // final newListVariant = _dataProvider.variants
+      //     .where((variant) => variant.variantTypeId?.sId == product.proVariantTypeId?.sId)
+      //     .toList();
+      // final List<String> variantNames = newListVariant.map((variant) => variant.name ?? '').toList();
+      // variantsByVariantType = variantNames;
+      // selectedVariants = product.proVariantId ?? [];
     } else {
       clearFields();
     }
@@ -318,10 +314,10 @@ class DashBoardProvider extends ChangeNotifier {
     fifthImgXFile = null;
 
     selectedCategory = null;
-    selectedSubCategory = null;
-    selectedBrand = null;
-    selectedVariantType = null;
-    selectedVariants = [];
+    // selectedSubCategory = null;
+    // selectedBrand = null;
+    // selectedVariantType = null;
+    // selectedVariants = [];
 
     productForUpdate = null;
 

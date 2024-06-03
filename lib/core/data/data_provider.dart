@@ -242,44 +242,43 @@ class DataProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-
-Future<void> getAllProduct({bool showSnack = false}) async {
-  try {
-    Response response = await service.getItems(endpointUrl: 'products');
-    print(response.body); // Add this line for debugging
-    ApiResponse<List<Product>> apiResponse = ApiResponse<List<Product>>.fromJson(
-      jsonDecode(response.body), // Ensure response.body is properly decoded
-      (json) => (json as List).map((item) => Product.fromJson(item)).toList(),
-    );
-    _allProducts = apiResponse.data ?? [];
-    _filteredProducts = List.from(_allProducts); // Initialize with original data
-    notifyListeners();
-    if (showSnack) SnackBarHelper.showSuccessSnackBar(apiResponse.message);
-  } catch (e) {
-    if (showSnack) SnackBarHelper.showErrorSnackBar(e.toString());
-  }
-}
-
-
-  void filterProducts(String keyword) {
-    if (keyword.isEmpty) {
-      _filteredProducts = List.from(_allProducts);
-    } else {
-      final lowerKeyword = keyword.toLowerCase();
-
-      _filteredProducts = _allProducts.where((product) {
-        final productNameContainsKeyword = (product.name ?? '').toLowerCase().contains(lowerKeyword);
-        final categoryNameContainsKeyword =
-            product.proSubCategoryId?.name?.toLowerCase().contains(lowerKeyword) ?? false;
-        final subCategoryNameContainsKeyword =
-            product.proSubCategoryId?.name?.toLowerCase().contains(lowerKeyword) ?? false;
-
-        //? You can add more conditions here if there are more fields to match against
-        return productNameContainsKeyword || categoryNameContainsKeyword || subCategoryNameContainsKeyword;
-      }).toList();
+  Future<void> getAllProduct({bool showSnack = false}) async {
+    try {
+      Response response = await service.getItems(endpointUrl: 'products');
+      print(response);
+      ApiResponse<List<Product>> apiResponse = ApiResponse<List<Product>>.fromJson(
+        response.body,
+            (json) => (json as List).map((item) => Product.fromJson(item)).toList(),
+      );
+      _allProducts = apiResponse.data ?? [];
+      _filteredProducts = List.from(_allProducts); // Initialize with original data
+      notifyListeners();
+      if (showSnack) SnackBarHelper.showSuccessSnackBar(apiResponse.message);
+    } catch (e) {
+      if (showSnack) SnackBarHelper.showErrorSnackBar(e.toString());
     }
-    notifyListeners();
   }
+
+
+  // void filterProducts(String keyword) {
+  //   if (keyword.isEmpty) {
+  //     _filteredProducts = List.from(_allProducts);
+  //   } else {
+  //     final lowerKeyword = keyword.toLowerCase();
+
+  //     _filteredProducts = _allProducts.where((product) {
+  //       final productNameContainsKeyword = (product.name ?? '').toLowerCase().contains(lowerKeyword);
+  //       final categoryNameContainsKeyword =
+  //           product.proSubCategoryId?.name?.toLowerCase().contains(lowerKeyword) ?? false;
+  //       final subCategoryNameContainsKeyword =
+  //           product.proSubCategoryId?.name?.toLowerCase().contains(lowerKeyword) ?? false;
+
+  //       //? You can add more conditions here if there are more fields to match against
+  //       return productNameContainsKeyword || categoryNameContainsKeyword || subCategoryNameContainsKeyword;
+  //     }).toList();
+  //   }
+  //   notifyListeners();
+  // }
 
 
   Future<List<Poster>> getAllPosters({bool showSnack = false}) async {
