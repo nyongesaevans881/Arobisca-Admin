@@ -35,14 +35,14 @@ class OrderListSection extends StatelessWidget {
             child: Consumer<DataProvider>(
               builder: (context, dataProvider, child) {
                 return DataTable(
-                  columnSpacing: defaultPadding,
+                  columnSpacing: 10,
                   // minWidth: 600,
                   columns: [
                     DataColumn(
                       label: Text("Customer Email"),
                     ),
                     DataColumn(
-                      label: Text("Order Amount"),
+                      label: Text("Amount"),
                     ),
                     DataColumn(
                       label: Text("Payment"),

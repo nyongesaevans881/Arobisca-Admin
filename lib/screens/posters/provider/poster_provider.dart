@@ -1,13 +1,12 @@
 import 'dart:developer';
 import 'dart:io';
-import 'package:admin/core/data/data_provider.dart';
-
 import '../../../models/api_response.dart';
 import '../../../services/http_services.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart' hide Category;
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import '../../../core/data/data_provider.dart';
 import '../../../models/poster.dart';
 import '../../../utility/snack_bar_helper.dart';
 
@@ -39,6 +38,7 @@ class PosterProvider extends ChangeNotifier {
       final FormData form = await createFormData(imgXFile: imgXFile, formData: formDataMap);
 
       final response = await service.addItem(endpointUrl: 'posters', itemData: form);
+      print(response.body);
       if (response.isOk) {
         ApiResponse apiResponse = ApiResponse.fromJson(response.body, null);
         if (apiResponse.success == true) {
