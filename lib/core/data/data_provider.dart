@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import '../../models/api_response.dart';
 import '../../models/coupon.dart';
 import '../../models/my_notification.dart';
@@ -410,7 +408,7 @@ class DataProvider extends ChangeNotifier {
     } else {
       final lowerKeyword = keyword.toLowerCase();
       _filteredOrders = _allOrders.where((order) {
-        bool nameMatches = (order.userID?.name ?? '').toLowerCase().contains(lowerKeyword);
+        bool nameMatches = (order.userID?.email ?? '').toLowerCase().contains(lowerKeyword);
         bool statusMatches = (order.orderStatus ?? '').toLowerCase().contains(lowerKeyword);
         return nameMatches || statusMatches;
       }).toList();

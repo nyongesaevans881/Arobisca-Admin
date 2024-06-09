@@ -1,12 +1,13 @@
 import 'dart:developer';
 import 'dart:io';
+import 'package:admin/core/data/data_provider.dart';
+
 import '../../../models/api_response.dart';
 import '../../../services/http_services.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart' hide Category;
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
-import '../../../core/data/data_provider.dart';
 import '../../../models/poster.dart';
 import '../../../utility/snack_bar_helper.dart';
 

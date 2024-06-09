@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:provider/provider.dart';
 import '../../../widgets/custom_dropdown.dart';
-import '../../../widgets/custom_text_field.dart';
 import '../provider/order_provider.dart';
 
 class OrderSubmitForm extends StatelessWidget {
@@ -42,7 +41,7 @@ class OrderSubmitForm extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  Expanded(child: formRow('Name:', Text(order?.userID?.name ?? 'N/A', style: TextStyle(fontSize: 16)))),
+                  Expanded(child: formRow('Name:', Text(order?.userID?.email ?? 'N/A', style: TextStyle(fontSize: 16)))),
                   Expanded(child: formRow('Order Id:', Text(order?.sId ?? 'N/A', style: TextStyle(fontSize: 12)))),
                 ],
               ),
@@ -73,13 +72,6 @@ class OrderSubmitForm extends StatelessWidget {
                   },
                 ),
               ),
-              formRow(
-                  'Tracking URL:',
-                  CustomTextField(
-                    labelText: 'Tracking Url',
-                    onSave: (val) {},
-                    controller: context.orderProvider.trackingUrlCtrl,
-                  )),
               Gap(defaultPadding * 2),
               actionButtons(context),
             ],
@@ -123,9 +115,9 @@ class OrderSubmitForm extends StatelessWidget {
           ),
           formRow('Phone:', Text(order?.shippingAddress?.phone ?? 'N/A', style: TextStyle(fontSize: 16))),
           formRow('Street:', Text(order?.shippingAddress?.street ?? 'N/A', style: TextStyle(fontSize: 16))),
-          formRow('City:', Text(order?.shippingAddress?.city ?? 'N/A', style: TextStyle(fontSize: 16))),
+          formRow('City/Town:', Text(order?.shippingAddress?.city ?? 'N/A', style: TextStyle(fontSize: 16))),
           formRow('Postal Code:', Text(order?.shippingAddress?.postalCode ?? 'N/A', style: TextStyle(fontSize: 16))),
-          formRow('Country:', Text(order?.shippingAddress?.country ?? 'N/A', style: TextStyle(fontSize: 16))),
+          formRow('County:', Text(order?.shippingAddress?.country ?? 'N/A', style: TextStyle(fontSize: 16))),
         ],
       ),
     );
@@ -161,14 +153,14 @@ class OrderSubmitForm extends StatelessWidget {
           formRow('Payment Method:', Text(order?.paymentMethod ?? 'N/A', style: TextStyle(fontSize: 16))),
           formRow('Coupon Code:', Text(order?.couponCode?.couponCode ?? 'N/A', style: TextStyle(fontSize: 16))),
           formRow('Order Sub Total:',
-              Text('\$${order?.orderTotal?.subtotal?.toStringAsFixed(2) ?? 'N/A'}', style: TextStyle(fontSize: 16))),
+              Text('KES. ${order?.orderTotal?.subtotal?.toStringAsFixed(2) ?? 'N/A'}', style: TextStyle(fontSize: 16))),
           formRow(
               'Discount:',
-              Text('\$${order?.orderTotal?.discount?.toStringAsFixed(2) ?? 'N/A'}',
+              Text('KES. ${order?.orderTotal?.discount?.toStringAsFixed(2) ?? 'N/A'}',
                   style: TextStyle(fontSize: 16, color: Colors.red))),
           formRow(
               'Grand Total:',
-              Text('\$${order?.orderTotal?.total?.toStringAsFixed(2) ?? 'N/A'}',
+              Text('KES. ${order?.orderTotal?.total?.toStringAsFixed(2) ?? 'N/A'}',
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold))),
         ],
       ),
@@ -206,7 +198,7 @@ class OrderSubmitForm extends StatelessWidget {
           SizedBox(height: defaultPadding), // Add some spacing before the total price
           formRow(
             'Total Price:',
-            Text('\$${order?.totalPrice?.toStringAsFixed(2) ?? 'N/A'}',
+            Text('KES. ${order?.totalPrice?.toStringAsFixed(2) ?? 'N/A'}',
                 style: TextStyle(fontSize: 16, color: Colors.green)),
           ),
         ],
@@ -226,8 +218,17 @@ class OrderSubmitForm extends StatelessWidget {
         final item = order!.items![index];
         return Padding(
           padding: EdgeInsets.only(bottom: 4.0), // Add spacing between items
-          child: Text('${item.productName}: ${item.quantity} x \$${item.price?.toStringAsFixed(2)}',
-              style: TextStyle(fontSize: 16)),
+          child: Container(
+            child: Row(
+              children: [
+                Text('${item.productName}: ',
+                    style: TextStyle(fontSize: 16)),
+                    SizedBox(width: 10,),
+                Text('${item.quantity} x KES. ${item.price?.toStringAsFixed(2)}',
+                    style: TextStyle(fontSize: 16)),
+              ],
+            ),
+          ),
         );
       },
     );

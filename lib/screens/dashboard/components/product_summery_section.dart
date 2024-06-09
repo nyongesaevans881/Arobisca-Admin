@@ -46,7 +46,7 @@ class ProductSummerySection extends StatelessWidget {
             percentage: totalProduct != 0 ? (limitedStockProduct / totalProduct) * 100 : 0,
           ),
           ProductSummeryInfo(
-            title: "Other Stock",
+            title: "Available Stock",
             productsCount: otherStockProduct,
             svgSrc: "assets/icons/Product4.svg",
             color: Color(0xFF47e228),
